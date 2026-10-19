@@ -29,7 +29,10 @@ The bundled binding API and godot-cpp snapshot are the ones used by this release
 See BUILDING.md for the reference toolchain and platform/runtime dependencies.
 
 `SOURCE-MANIFEST.json` records SHA-256 hashes of each original snapshot file
-and the associated release binaries. Repository documentation added after import
+and the associated release binaries. Some vendored text files are normalized
+between CRLF/LF by their upstream Git attributes: the historical byte checksums
+apply to the original archive, not those normalized Git checkout files.
+Repository documentation added after import
 is not listed in that historical manifest; future source changes should be
 tracked normally in Git and get a new manifest when a new release is packaged.
 
@@ -39,7 +42,8 @@ The release snapshot has only a Git LFS pointer for
 `work/AzaharSource/externals/teakra/src/test_verifier/data/teaklite2_tests_result.bin`,
 not its 357,257,824-byte dataset. That pointer is excluded here to avoid a broken
 Git LFS checkout. The historical manifest still lists it; all other original
-snapshot files are included unchanged. It is not used by the PocketFrame/core
+snapshot files are included, with only the line-ending normalization described
+above. It is not used by the PocketFrame/core
 build targets in BUILDING.md. Developers who want to run the separate upstream
 Teakra verifier need to obtain that optional dataset from upstream separately.
 

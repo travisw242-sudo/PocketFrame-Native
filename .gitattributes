@@ -1,5 +1,5 @@
-# Preserve the exact release-source snapshot bytes, including existing line ends.
-# This does not disable normal text diffs.
+# Preserve PocketFrame snapshot line ends. Vendored subdirectories may have
+# their own, more-specific normalization rules. Normal text diffs stay enabled.
 * -text
 work/** linguist-vendored=true
 extension_api.json linguist-generated=true
