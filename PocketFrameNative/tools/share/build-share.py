@@ -63,9 +63,13 @@ with zipfile.ZipFile(source_zip,"w",zipfile.ZIP_DEFLATED,compresslevel=6) as arc
         add_file(archive,project/"tools"/name,Path("PocketFrameNative/tools")/name)
     add_tree(archive,project/"tools/preview",Path("PocketFrameNative/tools/preview"))
     add_tree(archive,project/"tools/share",Path("PocketFrameNative/tools/share"))
-    add_tree(archive,workspace/"work/AzaharSource",Path("work/AzaharSource"))
-    add_tree(archive,workspace/"work/godot-cpp-main",Path("work/godot-cpp-main"))
+    add_tree(archive,workspace/"third_party/azahar",Path("third_party/azahar"))
+    add_tree(archive,workspace/"third_party/godot-cpp",Path("third_party/godot-cpp"))
     add_file(archive,workspace/"extension_api.json",Path("extension_api.json"))
+    add_file(archive,workspace/"third_party/README.md",Path("third_party/README.md"))
+    add_tree(archive,workspace/"tests",Path("tests"))
+    for name in ["LICENSE","LICENSING.md","SOURCE-NOTES.md","CONTRIBUTING.md"]:
+        add_file(archive,workspace/name,Path(name))
     add_tree(archive,app/"licenses",Path("licenses"))
     add_file(archive,Path(__file__).with_name("BUILDING.md"),Path("BUILDING.md"))
     archive.writestr("SOURCE-MANIFEST.json",json.dumps({"version":version,"azahar_base_commit":"bfa768727c60ad5bcb9397ad1471f8586605adf8",

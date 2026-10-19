@@ -1,22 +1,31 @@
-# Matching source — PocketFrame Native 0.1.0-preview.7
+# Building PocketFrame Native
 
-This snapshot accompanies the exact PocketFrame Native release payload. It
+This tree starts from the PocketFrame Native 0.1.0-preview.7 source snapshot. It
 contains the modified Azahar core, native Godot adapter, frontend/assets,
 bundled dependency sources and notices. Git histories, build outputs, caches,
 ROMs, firmware, personal settings/saves and pairing credentials are excluded.
 Some upstream dependency tests contain PUBLIC test certificates/example keys;
 these are upstream fixtures, not any user's credentials.
 
+Main has a tidier dependency layout than the original release archive. These
+instructions describe main; use the preview.7 tag or its Matching-Source.zip for
+the original layout. A full fresh-machine build of this reorganized tree has
+not yet been verified. See SOURCE-NOTES.md for provenance and historical hashes.
+
 ## Layout
 
 ```
 PocketFrameNative/       Godot project, native adapter, build/install scripts
-work/AzaharSource/       complete modified emulator + vendored dependency sources
-work/godot-cpp-main/     binding sources used for the adapter
+third_party/azahar/       complete modified emulator + vendored dependency sources
+third_party/godot-cpp/     binding sources used for the adapter
 extension_api.json      API definition used for Godot 4.7.2
 licenses/               distributed component notices
 SOURCE-MANIFEST.json    SHA256 for each source file and release binary hashes
 ```
+
+`third_party/README.md` lists dependency origins. `work/` and `outputs/` are
+ignored local output directories, not source dependencies. The manifest above
+describes the original release archive, not the current development checkout.
 
 Upstream Azahar base commit: bfa768727c60ad5bcb9397ad1471f8586605adf8.
 The snapshot itself, including local modifications/new files, is authoritative.
@@ -28,7 +37,7 @@ Git version metadata can differ when rebuilding a source archive.
 
 ## Native libraries (Ubuntu / WSL Ubuntu)
 
-Extract this archive to a writable directory. From its root:
+Clone or extract the source to a writable directory. From its root:
 
 1. Run `bash PocketFrameNative/tools/setup-ubuntu.sh` to install build tools.
    Review this script first; package installation requires local sudo/root.
@@ -72,7 +81,7 @@ The binding API is intentionally fixed to the matching Godot version.
 ## Licences / changes
 
 Azahar and its local modifications are distributed under GPL-3.0 as provided in
-`work/AzaharSource/LICENSE.txt`; individual upstream files retain their notices.
+`third_party/azahar/LICENSE.txt`; individual upstream files retain their notices.
 PocketFrame's own source retains its MIT notice, and the integrated distribution
 includes the GPL emulator. Godot, godot-cpp, hand assets and bundled libraries
 retain their own notices; full bundled dependency licences are in their source

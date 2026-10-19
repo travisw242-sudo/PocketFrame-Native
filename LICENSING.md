@@ -5,7 +5,7 @@ copyright notices and licence files; the root GPL text does not replace the
 component-specific notices.
 
 - **Azahar and its modifications:** GPL-3.0 as provided in
-  [work/AzaharSource/LICENSE.txt](work/AzaharSource/LICENSE.txt). The GPL text is
+  [third_party/azahar/LICENSE.txt](third_party/azahar/LICENSE.txt). The GPL text is
   also available as the root `LICENSE` and under `licenses/`.
 - **PocketFrame's own source:** its existing MIT notice is in
   [PocketFrameNative/LICENSE](PocketFrameNative/LICENSE).

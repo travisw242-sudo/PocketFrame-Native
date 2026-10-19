@@ -7,12 +7,10 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# Local builds, downloads and exports (vendored source under work/ stays tracked)
+# Local builds, downloads and exports (dependency source lives in third_party/)
 /outputs/
 /build/
-/work/native-export-runtime/
-/work/*Build/
-/work/*-build/
+/work/
 /PocketFrameNative/bin/*
 !/PocketFrameNative/bin/PocketFrameAzahar.gdextension
 /PocketFrameNative/runtime/
@@ -50,4 +48,4 @@ settings.cfg
 
 # Optional upstream 357 MB Teakra verifier dataset: the release source includes
 # only its LFS pointer, not the dataset. It is not needed to build PocketFrame.
-/work/AzaharSource/externals/teakra/src/test_verifier/data/teaklite2_tests_result.bin
+/third_party/azahar/externals/teakra/src/test_verifier/data/teaklite2_tests_result.bin

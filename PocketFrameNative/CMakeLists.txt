@@ -11,7 +11,7 @@ set(GODOTCPP_USE_STATIC_CPP OFF CACHE BOOL "Share the platform C++ runtime with 
 set(GODOTCPP_TARGET template_release CACHE STRING "" FORCE)
 set(GODOTCPP_BUILD_PROFILE "${CMAKE_CURRENT_SOURCE_DIR}/native/pocketframe_azahar/build_profile.json" CACHE FILEPATH "Only bindings used by the native emulator adapter" FORCE)
 set(GODOTCPP_CUSTOM_API_FILE "${CMAKE_CURRENT_SOURCE_DIR}/../extension_api.json" CACHE FILEPATH "Godot 4.7.2 API")
-set(GODOTCPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../work/godot-cpp-main" CACHE PATH "Bindings source")
+set(GODOTCPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../third_party/godot-cpp" CACHE PATH "Bindings source")
 add_subdirectory("${GODOTCPP_DIR}" godot-cpp)
 find_package(Threads REQUIRED)
 set(PF_NATIVE native/pocketframe_azahar)
@@ -23,8 +23,8 @@ target_compile_features(PocketFrameRuntime PRIVATE cxx_std_20)
 target_compile_definitions(PocketFrameRuntime PRIVATE TYPED_METHOD_BIND VK_NO_PROTOTYPES)
 target_include_directories(PocketFrameRuntime PRIVATE
     ${PF_NATIVE}/include
-    ../work/AzaharSource/externals/libretro-common/libretro-common/include
-    ../work/AzaharSource/externals/vulkan-headers/include)
+    ../third_party/azahar/externals/libretro-common/libretro-common/include
+    ../third_party/azahar/externals/vulkan-headers/include)
 target_link_libraries(PocketFrameRuntime PRIVATE godot::cpp Threads::Threads ${CMAKE_DL_LIBS})
 set_target_properties(PocketFrameRuntime PROPERTIES
     CXX_VISIBILITY_PRESET hidden

@@ -1,6 +1,6 @@
 # Preserve PocketFrame snapshot line ends. Vendored subdirectories may have
 # their own, more-specific normalization rules. Normal text diffs stay enabled.
 * -text
-work/** linguist-vendored=true
+third_party/** linguist-vendored=true
 extension_api.json linguist-generated=true
 SOURCE-MANIFEST.json linguist-generated=true

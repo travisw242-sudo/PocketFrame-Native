@@ -17,5 +17,6 @@ PocketFrame now derives a one-pass Loop-refined mesh at load time and assigns
 a code-defined clean skin/nail material. Original glTF/texture files are kept
 unchanged; nail patches have a small outward clearance to avoid skin z-fighting.
 PocketFrame's controller adapter and kinematic contact solver are local code.
-The source checkout is retained under work/xr-tools-4.5.1 for reproducibility;
-it is not a second runnable PocketFrame project and contains no game ROMs.
+The relevant original hand assets and notices are retained under
+PocketFrameNative/assets/vendor/xr_hands/. The complete XR Tools checkout is not
+included; the upstream revision above identifies its origin. No game ROMs are included.

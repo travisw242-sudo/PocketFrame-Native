@@ -85,11 +85,11 @@ When reporting an issue, include the PocketFrame version, headset OS version, ga
 
 ## Source and credits
 
-**The source is directly browsable here:** [Godot app](PocketFrameNative/scripts/), [native adapter](PocketFrameNative/native/), [modified Azahar core](work/AzaharSource/) and [tests](PocketFrameNative/tests/).
+**The source is directly browsable here:** [Godot app](PocketFrameNative/scripts/), [native adapter](PocketFrameNative/native/), [modified Azahar core](third_party/azahar/) and [tests](PocketFrameNative/tests/).
 
 Start with [BUILDING.md](BUILDING.md) to build it, [SOURCE-NOTES.md](SOURCE-NOTES.md) for layout/provenance, [CONTRIBUTING.md](CONTRIBUTING.md) for changes and bug reports, and [LICENSING.md](LICENSING.md) for component licences.
 
-This is an honest initial import of the preview.7 source, not a reconstruction of earlier development commits. App/core code matches the release; [SOURCE-NOTES.md](SOURCE-NOTES.md) documents the single optional upstream test-data pointer omitted from Git. The original snapshot remains in **Matching-Source.zip** inside the release. **SOURCE-MANIFEST.json** records its file and binary checksums. Future changes should be tracked as normal incremental commits.
+Development starts from an honest import of the preview.7 source, not a reconstruction of earlier development commits. Main now separates dependencies under `third_party/`; [SOURCE-NOTES.md](SOURCE-NOTES.md) explains the layout, historical paths and optional upstream test-data exception. The unchanged release tag and **Matching-Source.zip** preserve the preview snapshot. **SOURCE-MANIFEST.json** records that original archive's file and binary checksums, not a fresh manifest of main.
 
 Built with Godot, OpenXR and a modified Azahar emulator core. Azahar and its modifications retain their GPL-3.0 licensing; PocketFrame's own source retains its MIT notice. Other components/assets retain their respective licences. Full notices accompany the release and source snapshot. Keep them and corresponding source available when redistributing.
 

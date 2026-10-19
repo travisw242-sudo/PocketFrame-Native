@@ -24,6 +24,16 @@ or exported applications to Git; downloadable builds belong in Releases.
 
 ## Tests
 
+The source-layout check requires only Python 3.11+ and does not compile or run
+the emulator:
+
+```sh
+python -m unittest discover -s tests -v
+```
+
+It checks dependency paths, build-script references and Python syntax. It does
+not replace a clean build or headset testing.
+
 With the matching Godot editor installed, UI-only checks can be run from the
 repository root (replace `godot` with the path to your editor executable):
 

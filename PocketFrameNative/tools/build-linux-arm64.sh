@@ -10,8 +10,9 @@ for tool in cmake ninja aarch64-linux-gnu-g++ python3; do
     command -v "$tool" >/dev/null || { echo "Missing $tool. Run tools/setup-ubuntu.sh first." >&2; exit 1; }
 done
 test -f "$workspace_dir/extension_api.json"
-test -f "$workspace_dir/work/AzaharSource/CMakeLists.txt"
-cmake -S "$workspace_dir/work/AzaharSource" -B "$build_dir/core" -G Ninja \
+test -f "$workspace_dir/third_party/azahar/CMakeLists.txt"
+test -f "$workspace_dir/third_party/godot-cpp/CMakeLists.txt"
+cmake -S "$workspace_dir/third_party/azahar" -B "$build_dir/core" -G Ninja \
     -DCMAKE_TOOLCHAIN_FILE="$toolchain" -DCMAKE_BUILD_TYPE=Release \
     -DENABLE_LIBRETRO=ON -DENABLE_VULKAN=ON -DENABLE_OPENGL=OFF \
     -DENABLE_QT=OFF -DENABLE_SDL2=OFF -DENABLE_WEB_SERVICE=OFF \

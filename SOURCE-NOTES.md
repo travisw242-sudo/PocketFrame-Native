@@ -2,20 +2,23 @@
 
 The source import comes from **Matching-Source.zip** in the published
 **0.1.0-preview.7** release. App/core code is unchanged; the single optional
-upstream test-data pointer omitted from Git is documented below. This is not
-the unfinished local preview.8 privacy rebuild. The playable download is unchanged.
+upstream test-data pointer omitted from Git is documented below. The current
+development branch reorganizes dependencies and updates build/package paths;
+it is not the unfinished local preview.8 privacy rebuild. The playable download
+and the preview.7 release tag are unchanged.
 
 | Path | Contents |
 | --- | --- |
 | `PocketFrameNative/scripts/` | Godot console, hands, cartridges, Studio, AR and in-headset UI |
 | `PocketFrameNative/native/` | Native Godot-to-emulator adapter |
 | `PocketFrameNative/assets/`, `tests/`, `tools/` | Shared assets, checks and build/install/package tools |
-| `work/AzaharSource/` | Complete modified emulator source and vendored dependencies |
-| `work/godot-cpp-main/` | Godot C++ bindings used for this release |
+| `third_party/azahar/` | Complete modified emulator source and vendored dependencies |
+| `third_party/godot-cpp/` | Godot C++ bindings used for this release |
 | `licenses/`, `extension_api.json`, `BUILDING.md` | Component notices, binding API and build instructions |
 
-Despite its historical name, tracked `work/` contains **source**, not personal
-build caches. Vendoring keeps the exact modified core and dependencies available
+Tracked `third_party/` contains dependency **source**, not build caches.
+Ignored `work/` is reserved for downloaded export templates and legacy local
+build outputs. Vendoring keeps the exact modified core and dependencies available
 without relying on changing download links. GitHub marks this tree as vendored
 so third-party code does not dominate the language statistics.
 
@@ -36,10 +39,16 @@ Repository documentation added after import
 is not listed in that historical manifest; future source changes should be
 tracked normally in Git and get a new manifest when a new release is packaged.
 
+The historical manifest and original release archive use `work/AzaharSource/`
+and `work/godot-cpp-main/`. On the development branch these map to
+`third_party/azahar/` and `third_party/godot-cpp/`, respectively. The move itself
+does not change dependency contents. Use Git history for changes after import;
+do not treat the historical manifest as a checksum list for current main.
+
 ## Optional upstream test-data exception
 
 The release snapshot has only a Git LFS pointer for
-`work/AzaharSource/externals/teakra/src/test_verifier/data/teaklite2_tests_result.bin`,
+`third_party/azahar/externals/teakra/src/test_verifier/data/teaklite2_tests_result.bin`,
 not its 357,257,824-byte dataset. That pointer is excluded here to avoid a broken
 Git LFS checkout. The historical manifest still lists it; all other original
 snapshot files are included, with only the line-ending normalization described
