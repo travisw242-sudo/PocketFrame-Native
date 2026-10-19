@@ -1,0 +1,66 @@
+name: Compatibility Report
+description: Report the compatibility of a game
+body:
+  - type: markdown
+    attributes:
+      value: Tech support does not belong here; This page is for submitting compatibility reports with a correctly set up emulator.
+  - type: checkboxes
+    attributes:
+      label: Prerequisites
+      options:
+      - label: I have checked there is no currently open report for this game. (An updated report can be made for games with previously closed reports).
+        required: true
+      - label: I have read through the contribution guide [here](https://github.com/azahar-emu/compatibility-list/blob/master/CONTRIBUTING.md) from start to finish.
+        required: true
+      - label: I have played through this game from start to finish only using official releases of the Azahar emulator.
+        required: true
+      - label: The OpenGL renderer was throughout playthrough.
+        required: true
+      - label: If I experienced graphical issues with the Disable Right Eye Rendering option enabled, I checked that the issues also occur with this setting turned off.
+        required: true
+  - type: dropdown
+    id: rating
+    attributes:
+      label: Rating
+      description: What is the compatibility rating you are reporting for the game?
+      options:
+        - --Select One--
+        - Perfect (0)
+        - Great (1)
+        - Okay (2)
+        - Bad (3)
+        - Intro/Menu (4)
+        - Won't Boot (5)
+    validations:
+      required: true
+  - type: textarea
+    id: report-desc
+    attributes:
+      label: Description
+      description: An in-depth description of the playthrough experience when using the emulator, including any issues which were experienced. Include screenshots and videos if available and relevant.
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Azahar Version
+      description: The Azahar version which was used when playing through the game. If multiple versions were used, list them all.
+      placeholder: "1234"
+    validations:
+      required: true
+  - type: textarea
+    id: system-config
+    attributes:
+      label: System Configuration
+      description: Information about your system. If using Linux, include whether you are using Flatpak or AppImage
+      placeholder: |
+        CPU: Intel i5-10400 / AMD Ryzen 5 3600
+        GPU/Driver: NVIDIA GeForce GTX 1060 (Driver 512.95)
+        RAM: 16GB DDR4-3200
+        OS: Windows 11 22H2 (Build 22621.819)
+      value: |
+        CPU:
+        GPU/Driver:
+        RAM:
+        OS:
+    validations:
+      required: true

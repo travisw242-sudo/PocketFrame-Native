@@ -1,0 +1,53 @@
+# Godot/editor state
+.godot/
+__pycache__/
+*.pyc
+.vs/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local builds, downloads and exports (vendored source under work/ stays tracked)
+/outputs/
+/build/
+/work/native-export-runtime/
+/work/*Build/
+/work/*-build/
+/PocketFrameNative/bin/*
+!/PocketFrameNative/bin/PocketFrameAzahar.gdextension
+/PocketFrameNative/runtime/
+*.dll
+*.so
+*.exe
+*.pdb
+*.obj
+*.o
+*.a
+*.pck
+*.zip
+*.log
+
+# User content and credentials must never enter this repository
+games/
+app_userdata/
+*.cci
+*.3ds
+*.cia
+*.cxi
+*.3dsx
+*.sav
+.env
+.env.*
+devkit_rsa
+id_rsa
+id_ed25519
+known_hosts
+*.pfx
+*.p12
+settings.cfg
+
+# Do not blanket-ignore *.key/*.pem: vendored upstream tests have public fixtures.
+
+# Optional upstream 357 MB Teakra verifier dataset: the release source includes
+# only its LFS pointer, not the dataset. It is not needed to build PocketFrame.
+/work/AzaharSource/externals/teakra/src/test_verifier/data/teaklite2_tests_result.bin

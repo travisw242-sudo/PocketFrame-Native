@@ -1,0 +1,6 @@
+# Preserve the exact release-source snapshot bytes, including existing line ends.
+# This does not disable normal text diffs.
+* -text
+work/** linguist-vendored=true
+extension_api.json linguist-generated=true
+SOURCE-MANIFEST.json linguist-generated=true

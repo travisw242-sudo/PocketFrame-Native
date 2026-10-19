@@ -1,0 +1,41 @@
+extends SceneTree
+const Quality=preload("res://scripts/quality_presets.gd")
+const Shells=preload("res://scripts/shell_catalog.gd")
+var failures := 0
+var checks := 0
+func check(ok: bool, title: String) -> void:
+	checks+=1
+	if not ok: failures+=1;push_error(title)
+func _initialize() -> void: _run.call_deferred()
+func _run() -> void:
+	check(Quality.factor("balanced")==1 and Quality.factor("sharp")==2 and Quality.factor("ultra")==3,"Three genuine render factors")
+	check(Shells.ITEMS.size()==10 and Shells.index("botanical")==1,"Ten unique finishes include botanical and galaxy options")
+	var main=load("res://main.tscn").instantiate()
+	root.add_child(main);main.set_process(false)
+	main.device.bottom_canvas.set_home_context("NO CARTRIDGE",.42,.3,6)
+	check(main.device.bottom_canvas.volume_percent==42 and main.device.bottom_canvas.depth_percent==30,"Home shows real volume and depth values")
+	check(not main.device.top_canvas.clock_text.is_empty(),"Home clock initialized")
+	main.device.set_shell_design("nebula")
+	check(main.device.shell_design=="nebula" and main.device.lid.get_node("LidHousing").material_override is ShaderMaterial,"Shell artwork applies to actual lid")
+	main.device.set_shell_design("")
+	check(main.device.lid.get_node("LidHousing").material_override==main.device.body_material,"Classic shell restores without overlay or collision change")
+	var image := Image.create(1200,720,false,Image.FORMAT_RGBA8)
+	image.fill(Color("32676e"))
+	var texture := ImageTexture.create_from_image(image)
+	main.device.set_screen_textures(texture,texture)
+	check(main.device.top_viewport.render_target_update_mode==SubViewport.UPDATE_DISABLED and main.device.bottom_viewport.render_target_update_mode==SubViewport.UPDATE_DISABLED,"Hidden home viewports do not render during gameplay")
+	main.device.clear_screen_textures()
+	check(main.device.top_viewport.render_target_update_mode==SubViewport.UPDATE_WHEN_VISIBLE,"Ejection restores home rendering")
+	main.queue_free()
+	var launcher=load("res://launcher.tscn").instantiate()
+	root.add_child(launcher)
+	await process_frame
+	check(launcher.quality_choice.item_count==3,"Launcher offers 3x preset")
+	check(launcher.backend_choice.item_count==1 and launcher.backend_choice.disabled,"Local launcher uses Vulkan only")
+	check(launcher.shell_buttons.size()==10,"Launcher exposes all ten visual shell choices")
+	launcher.quality_choice.select(2)
+	var args: PackedStringArray=launcher._session_arguments()
+	check(args.has("ultra") and not args.has("-Game"),"3x launcher argument and empty-console startup")
+	launcher.queue_free()
+	print("PRODUCT PREVIEW: %d checks, %d failures"%[checks,failures])
+	quit(failures)

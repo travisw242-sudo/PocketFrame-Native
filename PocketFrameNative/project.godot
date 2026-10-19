@@ -1,0 +1,33 @@
+; PocketFrame — Godot 4.7.2
+config_version=5
+
+[application]
+config/name="PocketFrame Native"
+config/version="0.1.0-preview.7"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="PocketFrame Native"
+run/main_scene="res://native_boot.tscn"
+config/features=PackedStringArray("4.7", "Mobile")
+config/icon="res://icon.svg"
+
+[display]
+window/size/viewport_width=1500
+window/size/viewport_height=960
+window/size/window_width_override=1500
+window/size/window_height_override=960
+window/stretch/mode="canvas_items"
+
+[rendering]
+renderer/rendering_method="mobile"
+renderer/rendering_method.mobile="mobile"
+textures/default_filters/use_nearest_mipmap_filter=false
+anti_aliasing/quality/msaa_3d=2
+environment/defaults/default_clear_color=Color(0.035, 0.044, 0.06, 1)
+
+[xr]
+openxr/enabled=true
+shaders/enabled=true
+openxr/default_action_map="res://openxr_action_map.tres"
+
+[physics]
+common/physics_ticks_per_second=90

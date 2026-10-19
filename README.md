@@ -10,7 +10,7 @@ PocketFrame runs on the headset itself. A paired computer is used for installati
 
 [Download the Steam Frame preview](https://github.com/travisw242-sudo/PocketFrame-Native/releases/tag/v0.1.0-preview.7) — choose **PocketFrame-Native-0.1.0-preview.7.zip** from **Assets**.
 
-Extract the entire ZIP. It includes the application, installer, instructions, component notices and **Matching-Source.zip**. GitHub's automatically generated “Source code” downloads contain this repository's documentation, **not the playable app or full emulator source**.
+Extract the entire ZIP. It includes the application, installer, instructions, component notices and **Matching-Source.zip**. GitHub's automatically generated “Source code” downloads contain the repository source, **not the playable app**.
 
 No games, firmware, personal saves or headset pairing credentials are included. Supply your own legally obtained game dumps. Please do not upload or request ROMs in this repository.
 
@@ -85,7 +85,11 @@ When reporting an issue, include the PocketFrame version, headset OS version, ga
 
 ## Source and credits
 
-The release includes the exact corresponding source snapshot in **Matching-Source.zip**, including the modified Azahar core, PocketFrame frontend/native adapter, dependency sources, build instructions and checksums. See **BUILDING.md** and **SOURCE-MANIFEST.json** inside it.
+**The source is directly browsable here:** [Godot app](PocketFrameNative/scripts/), [native adapter](PocketFrameNative/native/), [modified Azahar core](work/AzaharSource/) and [tests](PocketFrameNative/tests/).
+
+Start with [BUILDING.md](BUILDING.md) to build it, [SOURCE-NOTES.md](SOURCE-NOTES.md) for layout/provenance, [CONTRIBUTING.md](CONTRIBUTING.md) for changes and bug reports, and [LICENSING.md](LICENSING.md) for component licences.
+
+This is an honest initial import of the preview.7 source, not a reconstruction of earlier development commits. App/core code matches the release; [SOURCE-NOTES.md](SOURCE-NOTES.md) documents the single optional upstream test-data pointer omitted from Git. The original snapshot remains in **Matching-Source.zip** inside the release. **SOURCE-MANIFEST.json** records its file and binary checksums. Future changes should be tracked as normal incremental commits.
 
 Built with Godot, OpenXR and a modified Azahar emulator core. Azahar and its modifications retain their GPL-3.0 licensing; PocketFrame's own source retains its MIT notice. Other components/assets retain their respective licences. Full notices accompany the release and source snapshot. Keep them and corresponding source available when redistributing.
 

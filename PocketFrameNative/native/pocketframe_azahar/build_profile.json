@@ -1,0 +1,11 @@
+{
+  "enabled_classes": [
+    "OS",
+    "Node",
+    "Image",
+    "ImageTexture",
+    "AudioStreamGenerator",
+    "AudioStreamGeneratorPlayback",
+    "AudioStreamPlayer"
+  ]
+}
