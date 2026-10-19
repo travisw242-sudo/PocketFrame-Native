@@ -1,9 +1,5 @@
 # PocketFrame Native
 
-> Download temporarily offline for privacy maintenance. The previous build
-> contained local build-folder paths in diagnostic strings. A corrected preview
-> is being rebuilt; games and user credentials were not included in the download.
-
 A virtual dual-screen handheld you can hold and play in standalone Steam Frame VR—with an optional AR passthrough view.
 
 **Experimental community preview · Linux ARM64 · Vulkan / OpenXR**
