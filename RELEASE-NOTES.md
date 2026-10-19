@@ -4,7 +4,7 @@ Experimental standalone Steam Frame build: Linux ARM64, Vulkan and OpenXR.
 
 ## Download and install
 
-Download **PocketFrame-Native-0.1.0-preview.7.zip** below and extract it completely. Read **START-HERE.md** before installing. The ZIP contains the app, installer, matching source and component notices. GitHub's automatic “Source code” links are documentation-only, not the playable package.
+Download **PocketFrame-Native-0.1.0-preview.7.zip** below and extract it completely. Read **START-HERE.md** before installing. The ZIP contains the app, installer, matching source and component notices. Source is now directly browsable in the repository; GitHub's automatic “Source code” downloads contain source, not the playable app.
 
 Requires a developer-mode Steam Frame, Valve devkit pairing and Steam Linux Runtime 4 ARM64. No root or firmware flashing is needed. The app runs standalone after installation.
 
